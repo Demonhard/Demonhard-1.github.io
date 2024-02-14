@@ -1,9 +1,14 @@
 @import 'base/variables';
+@import 'blocks/promo';
+@import 'blocks/header';
+@import 'blocks/buttons';
+@import 'base/mixins';
 
-body {
+* {
     font-family: 'Museo Sans';
 }
 
-.header__text {
-    font-weight: 900;
+.container{
+    max-width: 950px;
+    margin: 0 auto;
 }

@@ -3,6 +3,7 @@
 @import 'blocks/header';
 @import 'blocks/buttons';
 @import 'base/mixins';
+@import 'blocks/advantages';
 
 * {
     font-family: 'Museo Sans';
@@ -12,3 +13,4 @@
     max-width: 950px;
     margin: 0 auto;
 }
+

@@ -1,0 +1,18 @@
+.consultation {
+    min-height: 680px;
+    background: url(../../img/bg/form_bg.png) center (center/cover) no-repeat;
+    padding: 100px 0 92px 0;
+
+    &__descr {
+        color:#fff;
+        font-weight: 300;
+        font-size: 20px;
+        align-items: left;
+        margin-bottom: 36px;
+        span {
+            font-weight: 500;
+        }
+
+    }
+
+}

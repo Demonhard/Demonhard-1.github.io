@@ -1,0 +1,28 @@
+.feedback {
+    height: 968px;
+    margin-bottom: 48px;
+    &__item {
+        display: flex;
+        margin-top: 60px;
+    }
+    &__text {
+        margin-left: 60px;
+        font-weight: 500;
+        font-size: 16px;
+        color: #0D0D0D ;
+        width: 680px;
+    }
+    &__subtitle {
+        font-weight: 700;
+        font-size: 18px;
+    }
+    &__experience {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+    &__img {
+        width: 169px;
+        height: 169px;
+    }
+}

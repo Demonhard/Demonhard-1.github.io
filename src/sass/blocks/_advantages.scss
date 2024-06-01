@@ -1,5 +1,5 @@
 .advantages {
-    height: 468px;
+    min-height: 468px;
     background-color: #F6F6F6;
     padding: 73px 0 65px 0;
   
@@ -17,6 +17,9 @@
     }
     &__icon {
         margin-bottom: 35px;
+        &_animated {
+            animation: heartbeat 2s ease  infinite ;
+        }
 
     }
 

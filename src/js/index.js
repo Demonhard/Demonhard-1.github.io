@@ -13,7 +13,7 @@ $(document).ready(function(){
           dotsClass:'slick-dots',
           arrows: false,
 
-        }
+        },
       },
       
       // You can unslick at a given breakpoint now by adding:
@@ -42,4 +42,108 @@ $(document).ready(function(){
 
   toggleSlide('.catalog-item__link');
   toggleSlide('.catalog-item__list__back');
+
+  //modal
+
+  $('[data-modal=consultation]').on('click', function() {
+    $('.overlay, #consultation').fadeIn();
+  });
+
+  $('.modal__close').on('click', function() {
+    $('.overlay, #consultation, #order, #thanks').fadeOut();
+  });
+
+  $('.button_mini').each(function(i) {
+    $(this).on('click', function()  {
+      $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
+      $('.overlay, #order').fadeIn('slow');
+    })
+  });
+
+  function validateForms(form){
+      $(form).validate({
+      rules: {
+        name: "required",
+        email: {
+          required: true,
+          email: true 
+        },
+        phone: "required",
+      },
+      messages: {
+        name: {
+          required: "Введіть своє ім'я",
+        },
+        phone: "Введіть свій номер телефону",
+
+        email: {
+          required: "Введіть свою пошту",
+          email: "Ваша пошта має бути  вигляду name@domain.com",
+        }
+      }
+
+    });
+  };
+
+   validateForms('#order form');
+   validateForms('#consultation form');
+   validateForms('#consultation-form');
+
+   $('input[name=phone]').mask("+380(99) 999-99-99");
+
+  $('form').submit(function(e) {
+    e.preventDefault();
+
+    if (!$(this).valid()) {
+      return;
+    }
+
+    $.ajax({
+      type: "POST",
+      url: "mailer/smart.php",
+      data: $(this).serialize()
+    }).done(function() {
+      $(this).find("input").val("");
+      $('#consultation, #order').fadeOut();
+      $('.overlay, #thanks').fadeIn('slow');
+
+
+      $('form').trigger('resset');
+    });
+    return false;
+
+  });
+
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 1200) {
+      $('.page-up').fadeIn();
+    } else {
+      $('.page-up').fadeOut();
+    }
+  });
+
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+
+  new WOW().init();
+
 });

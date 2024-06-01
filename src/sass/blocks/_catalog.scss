@@ -139,7 +139,7 @@
         }
         &__list {
             width: 50%;
-            list-style-type: none;
+            
             position: relative;
             padding-left: 19px;
             margin-bottom: 0;
@@ -150,6 +150,10 @@
             &_active {
                 margin-left: 0;
                 transform: translateX(-100%);
+            }
+            ul {
+              list-style-type: none; 
+              padding: 0; 
             }
             li {
                 margin-bottom: 20px;

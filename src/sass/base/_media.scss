@@ -108,6 +108,13 @@
             }
         }
     }
+
+    .advantages {
+        &__icon {
+            margin-top: 5px;
+        }
+    }
+    
     .consultation {
         .title_left {
             font-size: 30px;
@@ -165,6 +172,21 @@
 }
 
 @media (max-width: 480px) {
+
+    .header {
+        &__logo {
+            width: 150px;
+        }
+        &__contacts {
+            width: 150px;
+            .button {
+                width: 128px;
+            }
+        }
+        &__phone {
+            font-size: 13px;
+        }
+    }
     .promo {
         &__wrapper {
             align-items: center;
